@@ -1,5 +1,5 @@
 import ProductsList from "../../components/products/ProductsList";
-import { SidebarMenu } from "../../components/Sidebar";
+import { SidebarMenu } from "../../components/SidebarMenu";
 import { SidebarTrigger, useSidebar } from "../../components/ui/sidebar";
 import { cn } from "../../lib/utils";
 
