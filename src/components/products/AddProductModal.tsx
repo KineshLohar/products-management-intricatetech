@@ -89,7 +89,7 @@ export const AddProductModal = () => {
         setErrorMessage(null);
     };
 
-    const isSubmitting = form.formState.isSubmitting
+    const isSubmitting = mutation.isPending
 
     return (
         <>

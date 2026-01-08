@@ -115,7 +115,7 @@ export const EditProductModal = ({ editProduct, setEditProduct }: Props) => {
         setEditProduct({ open: '', data: null });
     };
 
-    const isSubmitting = form.formState.isSubmitting;
+    const isSubmitting = mutation.isPending;
     const isModalOpen = editProduct.open === 'edit'
     if (!isModalOpen) return;
 
