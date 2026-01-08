@@ -80,7 +80,7 @@ export const AddProductModal = () => {
     const onSubmit = (values: FormValues) => {
         // Make sure price is a number
         setErrorMessage(null);
-        mutation.mutate({ ...values, price: Number(values.price), id: new Date() });
+        mutation.mutate({ ...values, price: Number(values.price) });
     };
 
 

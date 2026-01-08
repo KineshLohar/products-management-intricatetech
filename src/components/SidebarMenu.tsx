@@ -1,7 +1,7 @@
 import { Home } from "lucide-react"
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenuButton, SidebarMenuItem, SidebarTrigger, useSidebar } from "./ui/sidebar"
 import { Link, useLocation } from "react-router-dom"
 import { cn } from "../lib/utils"
+import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenuButton, SidebarMenuItem, useSidebar } from "./ui/sidebar"
 
 const routes = [
     {

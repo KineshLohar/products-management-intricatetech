@@ -18,8 +18,8 @@ export const DeleteProductModal = ({ product, setProduct }: Props) => {
 
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-    const mutation = useMutation({
-        mutationFn: async (id) => {
+    const mutation = useMutation<ProductType, unknown, number>({
+        mutationFn: async (id: number) => {
             const { data } = await api.delete(`/products/${id}`);
             return data;
         },
@@ -39,22 +39,23 @@ export const DeleteProductModal = ({ product, setProduct }: Props) => {
 
     const isModalOpen = product.open === 'delete';
 
-    if (!isModalOpen || !product.data) return
+    if (!isModalOpen || !product.data) return null;
 
+    const { data } = product;
     return (
         <Dialog open={isModalOpen} onOpenChange={handleClose}>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Delete Product</DialogTitle>
                     <DialogDescription>
-                        Are you sure you want to delete <span className="font-semibold">{product.data?.title}</span>?
+                        Are you sure you want to delete <span className="font-semibold">{data?.title}</span>?
                         {errorMessage && <p className="text-red-500">{errorMessage}</p>}
                     </DialogDescription>
                     <DialogFooter className="mt-4">
                         <Button type="button" variant='ghost' onClick={handleClose}>
                             Cancel
                         </Button>
-                        <Button type="button" variant='destructive' onClick={() => mutation.mutate(product.data?.id)}>
+                        <Button type="button" variant='destructive' onClick={() => mutation.mutate(data.id)}>
                             Delete
                         </Button>
                     </DialogFooter>
