@@ -83,7 +83,6 @@ export const AddProductModal = () => {
         mutation.mutate({ ...values, price: Number(values.price) });
     };
 
-
     const handleClose = () => {
         form.reset();
         setOpen(false);
@@ -197,7 +196,7 @@ export const AddProductModal = () => {
                                     type="submit"
                                     disabled={isSubmitting}
                                 >
-                                    Create Product
+                                    {isSubmitting ? "Giving birth to data…" : "Create Product"}
                                 </Button>
                             </div>
                         </form>

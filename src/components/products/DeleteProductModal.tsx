@@ -41,6 +41,8 @@ export const DeleteProductModal = ({ product, setProduct }: Props) => {
 
     if (!isModalOpen || !product.data) return null;
 
+    const loading = mutation.isPending;
+
     const { data } = product;
     return (
         <Dialog open={isModalOpen} onOpenChange={handleClose}>
@@ -55,8 +57,8 @@ export const DeleteProductModal = ({ product, setProduct }: Props) => {
                         <Button type="button" variant='ghost' onClick={handleClose}>
                             Cancel
                         </Button>
-                        <Button type="button" variant='destructive' onClick={() => mutation.mutate(data.id)}>
-                            Delete
+                        <Button type="button" disabled={loading} variant='destructive' onClick={() => mutation.mutate(data.id)}>
+                            {loading ? "Poof! Almost gone…" : "Delete"}
                         </Button>
                     </DialogFooter>
                 </DialogHeader>

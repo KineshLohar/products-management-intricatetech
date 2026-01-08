@@ -218,7 +218,7 @@ export const EditProductModal = ({ editProduct, setEditProduct }: Props) => {
                                     type="submit"
                                     disabled={isSubmitting}
                                 >
-                                    Update Product
+                                   {isSubmitting ? "Rewriting history…" : "Update Product"}
                                 </Button>
                             </div>
                         </form>
